@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clínica GastroVida | Citas, Planes y Bienestar Digestivo</title>
+    <meta
+      name="description"
+      content="Agenda citas de gastroenterología, conoce planes médicos, testimonios y productos para el cuidado digestivo."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">GastroVida</div>
+      <nav class="menu">
+        <a href="#servicios">Servicios</a>
+        <a href="#planes">Planes</a>
+        <a href="#testimonios">Testimonios</a>
+        <a href="#tienda">Tienda</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="kicker">Atención digestiva profesional y humana</p>
+          <h1>Citas de gastroenterología fáciles, rápidas y seguras</h1>
+          <p>
+            “La salud intestinal es la raíz del bienestar.” Diseñamos una página clara para pacientes,
+            administradores y responsables del negocio.
+          </p>
+
+          <div class="cta-group">
+            <button id="btnCita" class="btn btn-primary">Agendar cita</button>
+            <button id="btnPlanes" class="btn btn-secondary">Planes</button>
+            <button id="btnTestimonios" class="btn btn-secondary">Testimonios</button>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h2>Próxima disponibilidad</h2>
+          <p id="nextSlot">Cargando horarios...</p>
+          <small>Actualizado automáticamente al abrir la página.</small>
+        </div>
+      </section>
+
+      <section id="servicios" class="section">
+        <h2>Servicios de gastroenterología</h2>
+        <div class="grid three">
+          <article class="card">
+            <h3>Consulta especializada</h3>
+            <p>Evaluación clínica para dolor abdominal, gastritis, colitis y reflujo.</p>
+          </article>
+          <article class="card">
+            <h3>Control y seguimiento</h3>
+            <p>Monitoreo de resultados con panel para paciente y panel administrativo.</p>
+          </article>
+          <article class="card">
+            <h3>Educación digestiva</h3>
+            <p>Recomendaciones de hábitos: nutrición, hidratación y prevención.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="planes" class="section section-alt">
+        <h2>Planes médicos</h2>
+        <div class="grid three">
+          <article class="card plan">
+            <h3>Plan Esencial</h3>
+            <p class="price">$29 / mes</p>
+            <ul>
+              <li>1 cita mensual</li>
+              <li>Recordatorios automáticos</li>
+              <li>Chat de orientación básica</li>
+            </ul>
+            <button class="btn btn-primary buy-plan" data-plan="Esencial" data-price="29">Elegir</button>
+          </article>
+          <article class="card plan featured">
+            <h3>Plan Familiar</h3>
+            <p class="price">$59 / mes</p>
+            <ul>
+              <li>Hasta 3 pacientes</li>
+              <li>2 citas mensuales</li>
+              <li>Prioridad de horarios</li>
+            </ul>
+            <button class="btn btn-primary buy-plan" data-plan="Familiar" data-price="59">Elegir</button>
+          </article>
+          <article class="card plan">
+            <h3>Plan Premium</h3>
+            <p class="price">$99 / mes</p>
+            <ul>
+              <li>Citas ilimitadas (sujeto a agenda)</li>
+              <li>Seguimiento personalizado</li>
+              <li>Soporte preferente</li>
+            </ul>
+            <button class="btn btn-primary buy-plan" data-plan="Premium" data-price="99">Elegir</button>
+          </article>
+        </div>
+      </section>
+
+      <section id="testimonios" class="section">
+        <h2>Resultados y testimonios</h2>
+        <blockquote id="testimonialText" class="testimonial"></blockquote>
+      </section>
+
+      <section id="tienda" class="section section-alt">
+        <h2>Tienda saludable</h2>
+        <p>Espacio para vender productos relacionados al cuidado digestivo.</p>
+        <div class="grid two" id="storeContainer"></div>
+      </section>
+
+      <section id="contacto" class="section">
+        <h2>Agenda tu cita</h2>
+        <form id="bookingForm" class="card form">
+          <label>
+            Nombre completo
+            <input type="text" name="nombre" required />
+          </label>
+          <label>
+            Correo electrónico
+            <input type="email" name="correo" required />
+          </label>
+          <label>
+            Fecha de cita
+            <input type="date" name="fecha" required />
+          </label>
+          <label>
+            Motivo
+            <textarea name="motivo" rows="4" required></textarea>
+          </label>
+          <button type="submit" class="btn btn-primary">Guardar solicitud</button>
+          <p id="formMessage" class="msg"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 GastroVida. “Un intestino sano, una vida más plena.”</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

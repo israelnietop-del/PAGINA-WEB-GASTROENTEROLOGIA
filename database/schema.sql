@@ -1,0 +1,33 @@
+-- Base de datos sugerida para producción (MySQL o PostgreSQL)
+
+CREATE TABLE clientes (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  nombre VARCHAR(120) NOT NULL,
+  correo VARCHAR(160) NOT NULL UNIQUE,
+  telefono VARCHAR(30),
+  fecha_registro TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE citas (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  cliente_id INTEGER NOT NULL,
+  fecha_cita TIMESTAMP NOT NULL,
+  motivo TEXT NOT NULL,
+  estado VARCHAR(30) NOT NULL DEFAULT 'pendiente',
+  creado_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_citas_cliente FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+);
+
+CREATE TABLE pagos (
+  id INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  cliente_id INTEGER NOT NULL,
+  cita_id INTEGER,
+  monto DECIMAL(10,2) NOT NULL,
+  moneda VARCHAR(10) NOT NULL DEFAULT 'USD',
+  metodo VARCHAR(50) NOT NULL,
+  estado VARCHAR(40) NOT NULL,
+  referencia_pasarela VARCHAR(120),
+  creado_en TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  CONSTRAINT fk_pagos_cliente FOREIGN KEY (cliente_id) REFERENCES clientes(id),
+  CONSTRAINT fk_pagos_cita FOREIGN KEY (cita_id) REFERENCES citas(id)
+);
